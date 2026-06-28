@@ -3,8 +3,11 @@ clc
 clear
 close all
 
-directory = 'D:\Development\RESEARCH\Raanana\data\rain_radar\Row_radar_MAT_files';
-% directory = 'C:\Users\raznu\Development\RESEARCH\Raanana\data\rain_radar\Row_radar_correct_MAT_files';
+% TODO: Set RAW_RADAR_DIR to the folder containing raw IMS radar .mat files.
+RAW_RADAR_DIR = 'PLEASE_SET_THIS_PATH';
+% TODO: Set CORRECTED_RADAR_DIR to the output folder for corrected .mat files.
+CORRECTED_RADAR_DIR = 'PLEASE_SET_THIS_PATH';
+directory = RAW_RADAR_DIR;
 
 %% Plots the differences bewtween time slices
 matFiles = dir(fullfile(directory, '*.mat'));
@@ -106,7 +109,7 @@ for i = 1:numFiles
     event_file.rain = interpolated_rain_field;
     event_file.time = full_time_vector_datenum;
     [~, filename, ~] = fileparts(matFiles(i).name);
-    save(fullfile('D:\Development\RESEARCH\Raanana\data\rain_radar\Row_radar_correct_MAT_files_SA_storms', [filename]), 'event_file');
+    save(fullfile(CORRECTED_RADAR_DIR, [filename]), 'event_file');
 
 end
 

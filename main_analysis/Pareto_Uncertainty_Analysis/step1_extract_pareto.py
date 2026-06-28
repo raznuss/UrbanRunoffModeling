@@ -13,8 +13,10 @@ import pandas as pd
 # ─────────────────────────────────────────────────────────────────────────────
 # PATHS  (original data - READ ONLY)
 # ─────────────────────────────────────────────────────────────────────────────
-PICKLE_PATH = r"D:\Development\RESEARCH\Raanana\SWMM\cross_validation_cali_solution_dict.pickle"
-OUTPUT_DIR  = r"D:\MY_CODES\UrbanRunoffModeling\Pareto_Uncertainty_Analysis\outputs"
+# Path to the calibration solution pickle (output of 02_swmm_calibration/04_swmm_calibration_after_cv_multobj.ipynb).
+# This file is not included in the repository. Set PICKLE_PATH to its location on your system.
+PICKLE_PATH = r"PLEASE_SET_THIS_PATH/cross_validation_cali_solution_dict.pickle"
+OUTPUT_DIR  = os.path.join(os.path.dirname(os.path.abspath(__file__)), "outputs")
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Objective functions that were used to build the Pareto front

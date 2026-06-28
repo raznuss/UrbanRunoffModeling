@@ -60,9 +60,23 @@ pareto_uncertainty_analysis/outputs/climate/temp/
 *.rpt
 
 # ──────────────────────────────────────────────────────────────────────────────
+# DRAFT / EXPLORATORY FOLDERS — not part of the published workflow
+# ──────────────────────────────────────────────────────────────────────────────
+main_analysis/03_sensitivity_analysis/Archive/
+main_analysis/04_impact_of_climate_change_and_urbanization/01_data_processing/drafts/
+main_analysis/04_impact_of_climate_change_and_urbanization/other_approaches/
+pareto_uncertainty_analysis/_deprecated/
+
+# ──────────────────────────────────────────────────────────────────────────────
+# SWMM MODEL FILE — contains subcatchment geometry derived from restricted GIS
+# Confirm releasability before removing this entry
+# ──────────────────────────────────────────────────────────────────────────────
+**/calibrated_baseline.inp
+
+# ──────────────────────────────────────────────────────────────────────────────
 # INTERNAL PROJECT DOCUMENTS
 # ──────────────────────────────────────────────────────────────────────────────
-# AI context document — contains internal paths and personal details
+# AI context document — contained internal paths and personal details; file deleted
 pareto_uncertainty_analysis/PROJECT_STATE.md
 
 # ──────────────────────────────────────────────────────────────────────────────

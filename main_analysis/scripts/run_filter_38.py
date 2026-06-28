@@ -1,7 +1,10 @@
 import os
 import pandas as pd
 
-SIM_DIR = r"D:\Development\RESEARCH\Raanana\SWMM\from_radar\Climate_Change\pickles\Urbanization_comparsion"
+# Path to the folder containing urbanization scenario pickle files.
+# These are large simulation outputs not included in this repository.
+# Set SIM_DIR to the local directory where you have stored these pickles.
+SIM_DIR = r"PLEASE_SET_THIS_PATH"
 PREVIEW_SCENARIO = "38% urbanization"
 PKL_MAP = {
     '38% urbanization': 'urbanization_1_0.pkl',
@@ -34,7 +37,7 @@ raw_df = pd.read_pickle(pkl_path)
 rainfall_columns = [col for col in raw_df.columns if is_rainfall_column(col)]
 clean_df = raw_df.drop(columns=rainfall_columns)
 
-output_dir = r"D:\Development\RESEARCH\Raanana\data"
+output_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "outputs")
 os.makedirs(output_dir, exist_ok=True)
 output_path = os.path.join(output_dir, "efrat_row_discharge_results_lowurbanization_level.csv")
 clean_df.to_csv(output_path, index=False)

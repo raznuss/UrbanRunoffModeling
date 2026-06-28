@@ -26,7 +26,7 @@ import matplotlib.patheffects as pe
 # ─────────────────────────────────────────────────────────────────────────────
 # PATHS
 # ─────────────────────────────────────────────────────────────────────────────
-BASE_DIR    = r'D:\MY_CODES\UrbanRunoffModeling\Pareto_Uncertainty_Analysis'
+BASE_DIR    = os.path.dirname(os.path.abspath(__file__))
 PICKLE_PATH = os.path.join(BASE_DIR, 'outputs', 'ensemble_results.pkl')
 PLOTS_DIR   = os.path.join(BASE_DIR, 'plots')
 os.makedirs(PLOTS_DIR, exist_ok=True)

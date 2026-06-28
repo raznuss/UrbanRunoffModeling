@@ -1,7 +1,11 @@
 clear
 clc
-flow_data = readtable('D:\MY_CODES\Raanana_urban_floods\Radar_Files_Extraction\high_dischrage_and_dates_raanana_6.5to13dis.csv');
-load('D:\MY_CODES\Raanana_urban_floods\Radar_Files_Extraction\gaugeData_updated_042023.mat')
+script_dir = fileparts(mfilename('fullpath'));
+figures_dir = fullfile(script_dir, 'figures');
+if ~exist(figures_dir, 'dir'); mkdir(figures_dir); end
+
+flow_data = readtable(fullfile(script_dir, 'high_dischrage_and_dates_raanana_6.5to13dis.csv'));
+load(fullfile(script_dir, 'gaugeData_updated_042023.mat'))
 
 %% Clip gauges within RM area
 xcordmin = 185000;
@@ -10,7 +14,9 @@ xcordmax = 197000;
 ycordmin = 668000;
 ycordmax = 685000;
 
-raanana_watershed = shaperead('D:\Development\RESEARCH\Raanana\gis\GIS\watershead_for_radar\Raanana_wsp.shp');
+% TODO: Set WATERSHED_SHP to the path of the Raanana watershed shapefile (restricted municipal GIS data).
+WATERSHED_SHP = 'PLEASE_SET_THIS_PATH';
+raanana_watershed = shaperead(WATERSHED_SHP);
 
 indexim = find([gaugeData.x]> xcordmin & [gaugeData.x] < xcordmax & [gaugeData.y]> ycordmin & [gaugeData.y] < ycordmax);
 gauges_names = {gaugeData(indexim).name};
@@ -133,7 +139,8 @@ for j = 1:length([times]) %% Loope on date
     date_matnum = times(j); %
     date_datevec = datevec(date_matnum);
     indexim = find([data_gague_radar.time]==date_matnum ); %% all gauges that have data on this day.
-    path_radar = 'S:\hydrolab\ShareData\radarDatabase\IMS\IMS_archive_cleaned_Adj_NEW\daily_SR';
+    % TODO: Set path_radar to the IMS radar daily archive directory (network/restricted data).
+    path_radar = 'PLEASE_SET_THIS_PATH';
     %% directory is Sep first year until June last year. i.e diretory 2010-2011 is sep 2010 - june 2011
     formatOut = 'yyymmdd';
     year =  date_datevec(1,1);
@@ -252,7 +259,7 @@ ylim([0,120])
 num_of_events = length(unique([data_gague_radar_unified.time]));
 text(0.7,0.2,[{['R^{2} = ' num2str(round(r2,2))]},{['RMSD = ' num2str(round(rmsd,1))]},{['bias = ' num2str(round(BIAS,3))]}],...
             'FontSize',14,'Color',[0.5 0.5 0.5],'Unit','normalized')
-print(f1, 'C:\Users\raznu\Development\RESEARCH\Raanana\figures\Radar_Gauges_Calibration\radar_gauga_perEvent_with_bias.jpg', '-djpeg', '-r600')
+print(f1, fullfile(figures_dir, 'radar_gauga_perEvent_with_bias.jpg'), '-djpeg', '-r600')
 
 
 %% Plot the full data - WITHOUT BIAS CORRECTION 
@@ -291,7 +298,7 @@ ylim([0,120])
 num_of_events = length(unique([data_gague_radar.time]));
 text(0.7,0.2,[{['R^{2} = ' num2str(round(r2,2))]},{['RMSD = ' num2str(round(rmsd,1))]},{['bias = ' num2str(round(BIAS,3))]}],...
             'FontSize',14,'Color',[0.5 0.5 0.5],'Unit','normalized')
-print(f1, 'C:\Users\raznu\Development\RESEARCH\Raanana\figures\Radar_Gauges_Calibration\radar_gauga_perDay_with_bias.jpg', '-djpeg', '-r600')
+print(f1, fullfile(figures_dir, 'radar_gauga_perDay_with_bias.jpg'), '-djpeg', '-r600')
 
 
 
@@ -330,7 +337,7 @@ ylim([0,120])
 num_of_events = length(unique([data_gague_radar.time]));
 text(0.7,0.2,[{['R^{2} = ' num2str(round(r2,2))]},{['RMSD = ' num2str(round(rmsd,1))]},{['bias = ' num2str(round(BIAS,3))]}],...
             'FontSize',14,'Color',[0.5 0.5 0.5],'Unit','normalized')
-print(f1, 'C:\Users\raznu\Development\RESEARCH\Raanana\figures\Radar_Gauges_Calibration\radar_gauga_perDay_with_bias_after_bias_correction.jpg', '-djpeg', '-r600')
+print(f1, fullfile(figures_dir, 'radar_gauga_perDay_with_bias_after_bias_correction.jpg'), '-djpeg', '-r600')
 %% Event radar-gauge multi-plot 
 
 events = unique([data_gague_radar.peak_time]);
@@ -384,9 +391,9 @@ for i = 1:length(events)
 
 end
 
-print(f2, 'C:\Users\raznu\Development\RESEARCH\Raanana\figures\Radar_Gauges_Calibration\Multiplot_radar_gauga_perEvent_with_bias.jpg', '-djpeg', '-r600')
+print(f2, fullfile(figures_dir, 'Multiplot_radar_gauga_perEvent_with_bias.jpg'), '-djpeg', '-r600')
 
-save('D:\MY_CODES\Raanana_urban_floods\Radar_Files_Extraction\Gauges_Radar_raanana_byevent_bigger_than6.5to13dis.mat','data_gague_radar')
+save(fullfile(script_dir, 'Gauges_Radar_raanana_byevent_bigger_than6.5to13dis.mat'), 'data_gague_radar')
 tt = datevec([data_gague_radar.time]);
 
 %% 
