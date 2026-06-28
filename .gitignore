@@ -1,0 +1,77 @@
+# ──────────────────────────────────────────────────────────────────────────────
+# Python
+# ──────────────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+.env
+.venv
+env/
+venv/
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Jupyter
+# ──────────────────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# ──────────────────────────────────────────────────────────────────────────────
+# RESTRICTED DATA — IMS radar, SERS discharge, municipal GIS
+# These files contain data that cannot be publicly distributed.
+# ──────────────────────────────────────────────────────────────────────────────
+
+# IMS radar data (raw and processed)
+main_analysis/01_rainfall_runoff_data/Radar_Files_Extraction/*.mat
+main_analysis/01_rainfall_runoff_data/Radar_Files_Extraction/gaugeData_updated_042023.mat
+main_analysis/01_rainfall_runoff_data/Radar_Files_Extraction/Gauges_Radar_raanana_byevent*.mat
+main_analysis/01_rainfall_runoff_data/Radar_Files_Extraction/event_structure*.mat
+
+# Intermediate radar-derived data (calibration input)
+main_analysis/02_swmm_calibration/storm_data.mat
+
+# ──────────────────────────────────────────────────────────────────────────────
+# LARGE BINARY FILES — simulation results and caches
+# These are large pickle files (SWMM simulation outputs). The key CSV summaries
+# and figure outputs are tracked instead.
+# ──────────────────────────────────────────────────────────────────────────────
+
+# Main analysis simulation pickles
+main_analysis/**/*.pkl
+
+# Refactored pipeline simulation caches (keep only the key Pareto CSV outputs)
+pareto_uncertainty_analysis/outputs/results/**/*.pkl
+pareto_uncertainty_analysis/outputs/_archive_480combo/
+
+# Climate ensemble raw pickles (large; reproduce from 05_01 notebook if needed)
+pareto_uncertainty_analysis/outputs/climate/raw/*.pkl
+
+# ──────────────────────────────────────────────────────────────────────────────
+# SWMM TEMPORARY FILES
+# Working .inp/.out/.rpt files written during simulation runs
+# ──────────────────────────────────────────────────────────────────────────────
+pareto_uncertainty_analysis/outputs/climate/temp/
+*.out
+*.rpt
+
+# ──────────────────────────────────────────────────────────────────────────────
+# INTERNAL PROJECT DOCUMENTS
+# ──────────────────────────────────────────────────────────────────────────────
+# AI context document — contains internal paths and personal details
+pareto_uncertainty_analysis/PROJECT_STATE.md
+
+# ──────────────────────────────────────────────────────────────────────────────
+# OS / editor artifacts
+# ──────────────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+*.code-workspace
