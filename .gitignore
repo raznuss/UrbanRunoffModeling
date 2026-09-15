@@ -89,3 +89,7 @@ Thumbs.db
 .idea/
 .vscode/
 *.code-workspace
+
+# AI coding assistant local config — contains local machine paths, not for publication
+.claude/
+**/.claude/

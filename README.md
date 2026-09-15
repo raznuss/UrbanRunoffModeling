@@ -54,7 +54,7 @@ See the `README.md` inside each subfolder for detailed descriptions.
 | WRF-PGW rainfall (historical + future) | Regional climate modeling (in-house) | **Restricted** — contact authors |
 | CMIP5 / CMIP6 precipitation | [ESGF / KNMI Climate Explorer](https://climexp.knmi.nl) | **Public** |
 | GHSL urban extent data | [JRC Global Human Settlement Layer](https://ghsl.jrc.ec.europa.eu) | **Public** |
-| Calibrated SWMM baseline model | This repository | `pareto_uncertainty_analysis/outputs/models/calibrated_baseline.inp` |
+| Calibrated SWMM baseline model | Not in this repository | **Restricted** — subcatchment geometry is derived from restricted municipal GIS; contact authors |
 | Pareto ensemble parameter sets | This repository | `pareto_uncertainty_analysis/outputs/pareto/final/` |
 | Processed simulation results | This repository | CSV files in `outputs/` subdirectories |
 
@@ -107,9 +107,10 @@ https://www.epa.gov/water-research/storm-water-management-model-swmm
 
 ### Using pre-computed results (no restricted data needed)
 
-The key calibration and simulation outputs are already provided:
+The key calibration and simulation outputs are already provided, with one exception:
 
-- **Calibrated SWMM model:** `pareto_uncertainty_analysis/outputs/models/calibrated_baseline.inp`
+- **Calibrated SWMM model:** not included — the `.inp` file's subcatchment geometry is derived
+  from restricted municipal GIS data and is not redistributable; contact the authors for access.
 - **Pareto ensemble parameters:** `pareto_uncertainty_analysis/outputs/pareto/final/pareto_ensemble_full.csv`
 - **Climate scenario figures:** `pareto_uncertainty_analysis/outputs/climate/figures/`
 - **CMIP precipitation analysis:** run `main_analysis/cmip_projection/CMIP5_CMIP6_combined_analysis.ipynb`
