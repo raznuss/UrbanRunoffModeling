@@ -55,6 +55,7 @@ See the `README.md` inside each subfolder for detailed descriptions.
 | CMIP5 / CMIP6 precipitation | [ESGF / KNMI Climate Explorer](https://climexp.knmi.nl) | **Public** |
 | GHSL urban extent data | [JRC Global Human Settlement Layer](https://ghsl.jrc.ec.europa.eu) | **Public** |
 | Calibrated SWMM baseline model | Not in this repository | **Restricted** — subcatchment geometry is derived from restricted municipal GIS; contact authors |
+| WRF basin/domain wet-fraction & block-stats `.mat` files | Not in this repository | **Restricted** — same source as WRF-PGW rainfall above; contact authors |
 | Pareto ensemble parameter sets | This repository | `pareto_uncertainty_analysis/outputs/pareto/final/` |
 | Processed simulation results | This repository | CSV files in `outputs/` subdirectories |
 

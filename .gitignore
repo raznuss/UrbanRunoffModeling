@@ -74,6 +74,14 @@ pareto_uncertainty_analysis/_deprecated/
 **/calibrated_baseline.inp
 
 # ──────────────────────────────────────────────────────────────────────────────
+# WRF-derived intermediate .mat files — same restricted-data category as the
+# WRF-PGW rainfall inputs they were computed from (see Data Availability in
+# README.md). Confirm releasability before removing this entry.
+# ──────────────────────────────────────────────────────────────────────────────
+main_analysis/04_impact_of_climate_change_and_urbanization/wrf_rainfall_analysis/**/*.mat
+main_analysis/04_impact_of_climate_change_and_urbanization/wrf_rainfall_analysis/*.mat
+
+# ──────────────────────────────────────────────────────────────────────────────
 # INTERNAL PROJECT DOCUMENTS
 # ──────────────────────────────────────────────────────────────────────────────
 # AI context document — contained internal paths and personal details; file deleted
