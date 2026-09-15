@@ -2,7 +2,7 @@
 
 Code repository accompanying the peer-reviewed paper:
 
-> **"Urban Runoff Response to Climate Change and Urbanization in the Eastern Mediterranean: A SWMM Ensemble Approach"**  
+> **"Dual urban runoff response to urbanization and contradictory precipitation trends driven by climate change"**  
 > Nahal Ra'anana catchment, Israel
 
 ## Overview
